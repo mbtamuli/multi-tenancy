@@ -19,6 +19,8 @@ jobs:
           node_image: ${{ matrix.kubernetes-version }}
       - name: Testing
         run: |
+          kubectl version
+          kubectl get nodes
           kubectl cluster-info
           kubectl get pods -n kube-system
           echo "current-context:" $(kubectl config current-context)
